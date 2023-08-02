@@ -1,0 +1,11 @@
+body{
+    background-image: url("../images/pexels-jônatas-tinoco-4318822.jpg");
+    background-size: cover;
+}
+input{
+    width: 500px;
+}
+
+h3{
+    color: #842029;
+}

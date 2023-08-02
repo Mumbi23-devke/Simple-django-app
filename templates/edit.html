@@ -1,0 +1,127 @@
+<html lang="en">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BOOK A SAFARI NOW</title>
+  </head>
+  <body>
+
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-md">
+
+        </div>
+      </nav>
+
+
+      <div class="container mt-5">
+
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Fill in this form</h2>
+                <br>
+
+                <form action="/update/{{ data.id }}"  method="post">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label>
+                            <input type="text" value="{{ data.name }}" class="form-control" placeholder="Name" name="name" required>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="email" value="{{ data.email }}" class="form-control  mt-2" placeholder="Email" name="email" required>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="text" value="{{ data.destination }}" class="form-control  mt-2" placeholder="Destination" name="destination" required>
+                        </label>
+
+                    </div>
+
+                       <div class="form-group">
+                        <label>
+                            <input type="text" value="{{ data.period }}" class="form-control  mt-2" placeholder="Duration" name="period" required>
+                        </label>
+
+                    </div>
+
+                       <div class="form-group">
+                        <label>
+                            <input type="text" value="{{ data.nationality}}" class="form-control  mt-2" placeholder="Nationality" name="nationality" required>
+                        </label>
+
+                    </div>
+
+                       <div class="form-group">
+                        <label>
+                            <input type="number" value="{{ data.people }}" class="form-control  mt-2" placeholder="Number of people" name="people" required>
+                        </label>
+
+                    </div>
+
+                        <button class="btn btn-info mt-2" type="submit"> Insert </button>
+
+
+
+
+                </form>
+            </div>
+                <table>
+                    <tr>
+                        <th> Name </th>
+                        <th> Email </th>
+                        <th> Destination </th>
+                        <th> Period </th>
+                        <th> Nationality </th>
+                        <th> People </th>
+                        <th> Action </th>
+
+
+                    </tr>
+
+                    {% for d in data %}
+
+                    <tr>
+                        <th>{{ d.name }}</th>
+                        <th>{{ d.email }}</th>
+                        <th>{{ d.destination}}</th>
+                        <th>{{ d.period }}</th>
+                        <th>{{ d.nationality }}</th>
+                        <th>{{ d.people }}</th>
+                        <th>
+                            <button>
+
+                       <a href="/delete/{{ d.delete }}">Delete</a>
+
+                   </button>
+
+                    <button>
+                       <a href="/update/{{ d.update }}">Update</a>
+
+                   </button>
+                        </th>
+
+
+                    </tr>
+
+                    {% endfor %}
+
+                </table>
+
+
+
+
+            </div>
+        </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+
+</html>
