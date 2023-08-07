@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-
 from .models import Client
 
 
@@ -25,7 +24,6 @@ def insertdata(request):
     return render(request, "home.html")
 
 
-# noinspection PyUnreachableCode
 def delete(request, id):
     d = Client.objects.get(id=id)
     d.delete()
@@ -42,7 +40,7 @@ def updatedata(request, id):
         nationality = request.POST.get('nationality')
         people = request.POST.get('people')
 
-        edit_data = Client.objects.get()
+        edit_data = Client.objects.get(id=id)
         edit_data.name = name
         edit_data.email = email
         edit_data.destination = destination
@@ -54,7 +52,5 @@ def updatedata(request, id):
         return redirect("/")
 
     data = Client.objects.get(id=id)
-    data.update()
     context = {"data": data}
     return render(request, "home.html", context)
-

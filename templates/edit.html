@@ -39,7 +39,7 @@
 
                     <div class="form-group">
                         <label>
-                            <input type="text" value="{{ data.destination }}" class="form-control  mt-2" placeholder="Destination" name="destination" required>
+                            <input type="text" value="{{ data.destination }}" class="form-control  mt-2" placeholder="Destination (could be multiple)" name="destination" required>
                         </label>
 
                     </div>
@@ -97,12 +97,12 @@
                         <th>
                             <button>
 
-                       <a href="/delete/{{ d.delete }}">Delete</a>
+                       <a href="/delete/{{ d.id }}">Delete</a>
 
                    </button>
 
                     <button>
-                       <a href="/update/{{ d.update }}">Update</a>
+                       <a href="/update/{{ d.id }}">Update</a>
 
                    </button>
                         </th>
@@ -113,8 +113,6 @@
                     {% endfor %}
 
                 </table>
-
-
 
 
             </div>
