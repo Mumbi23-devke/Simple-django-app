@@ -31,7 +31,7 @@ def delete(request, id):
     return render(request, "home.html")
 
 
-def updatedata(request, id):
+def update(request, id):
     if request.method == "POST":
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -40,7 +40,7 @@ def updatedata(request, id):
         nationality = request.POST.get('nationality')
         people = request.POST.get('people')
 
-        edit_data = Client.objects.get(id=id)
+        edit_data = Client.objects.all(id=id)
         edit_data.name = name
         edit_data.email = email
         edit_data.destination = destination
